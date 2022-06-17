@@ -38,7 +38,7 @@ $H_a$: Attitude towards capital punishment is related to race.
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
-Both race and capital punishment are categorical variables so the analysis technique is CAT~CAT; plot is a bar plot, summary is a cross table, and inference is a chi-square test.
+Both race and capital punishment are categorical variables so the analysis technique is CAT~CAT; plot is a bar plot, summary is a cross table, and inference is a chi-square test. We finally use a fisher x-y test to analyze whose views differ from whom.
 
 # Results
 
@@ -52,7 +52,6 @@ Both race and capital punishment are categorical variables so the analysis techn
 
 
 
-## Now with The Most data (fewer variables gives more data points)
 
 ```{r}
 dd2 <- mydata %>% group_by(race,cappun) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -69,16 +68,12 @@ basicCC <- ggplot(dd2,aes(x=race,y=prcnt*100,fill=cappun))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-
+Based on the data, it is apparent that the white race favor capital punishment far more than the black or other race. 
 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
-
-
-
-## Now with More data
 
 ```{r}
 table2 <- xtabs(~race + cappun, data=mydata)
@@ -86,6 +81,7 @@ rowPerc(table2)
 colPerc(table2)
 ```
 
+The top data set shows percentages for each race. About 68% of white people favor capital punishment. In the black race, about 46% favor capital punishment. In the other race, we see that about 56% favor capital punishment. We see the least variability in opinion from the black race and the most in the white.
 
 ## Inferential Results
 
@@ -94,8 +90,6 @@ colPerc(table2)
 `
 
 
-## More data version
-
 ```{r}
 chisq.test(table2)
 chisqtestGC(table2)
@@ -103,9 +97,19 @@ fisher.test(table2)
 #fisherXY(mydata$race,mydata$cappun)
 ```
 
+If there is a relationship between race and opinion, then there is a difference, meaning it is not 50/50 equal results. The Chi-Square adds up this difference and subtracts what we would expect if the null hypothesis were true. The P-Value is the probability that the null hypothesis is true. The p-value of this study is 0.0000000000000127. Since this p-value is under 0.05, I reject the null hypothesis due to it being so small.
+
 ```{r}
 fisherXY(mydata$cappun,mydata$race)
 ```
+
+When comparing the difference in opinion for the white and black race we see a p-value of 0.0000000000000575, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 2.5 times more likely to be in favor in capital punishment than black people.
+
+
+When comparing the difference in opinion for the white and other race we see a p-value of 0.0002819, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 1.7 times more likely to be in favor in capital punishment than the "other" people.
+
+
+When comparing the difference in opinion for the black and other race we see a p-value of 0.02479, so I reject the null hypothesis because it is under 0.05. The odds ratio means that black people are about 0.7 times more likely to be in favor in capital punishment than the "other" people.
  
 
 # Discussion and Conclusion
