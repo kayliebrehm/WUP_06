@@ -103,15 +103,17 @@ If there is a relationship between race and opinion, then there is a difference,
 fisherXY(mydata$cappun,mydata$race)
 ```
 
-When comparing the difference in opinion for the white and black race we see a p-value of 0.0000000000000575, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 2.5 times more likely to be in favor in capital punishment than black people.
+When comparing the difference in opinion for the white and black race we see a p-value of 0.0000000000000575, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 2.5 times more likely to be in favor of capital punishment than black people.
 
 
-When comparing the difference in opinion for the white and other race we see a p-value of 0.0002819, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 1.7 times more likely to be in favor in capital punishment than the "other" people.
+When comparing the difference in opinion for the white and other race we see a p-value of 0.0002819, so I reject the null hypothesis because it is under 0.05. The odds ratio means that white people are about 1.7 times more likely to be in favor of capital punishment than the "other" people.
 
 
-When comparing the difference in opinion for the black and other race we see a p-value of 0.02479, so I reject the null hypothesis because it is under 0.05. The odds ratio means that black people are about 0.7 times more likely to be in favor in capital punishment than the "other" people.
+When comparing the difference in opinion for the black and other race we see a p-value of 0.02479, so I reject the null hypothesis because it is under 0.05. The odds ratio means that black people are about 0.7 times more likely to be in favor of capital punishment than the "other" people.
  
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+The original question was "Is attitude toward capitol punishment (cappun) independent of race (race)?, If not, then whose view differs from whom??." The null hypothesis was "Attitude towards capital punishment is not related to race." I reject the null hypothesis due to a p-value so small, at 0.0000000000000127. We also observed p-values for each race compared to one another, testing their likelihood. Each of those p-values was also under 0.05, so I reject the null hypothesis on those as well. When observing difference we see the following: white people are about 2.5 times more likely to be in favor of capital punishment than black people, that white people are about 1.7 times more likely to be in favor of capital punishment than the "other" people, and that black people are about 0.7 times more likely to be in favor of capital punishment than the "other" people. With this observed difference, we do see a relationship between race and opinion on capital punishment. 
